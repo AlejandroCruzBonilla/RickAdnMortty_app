@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { GetStaticPropsResult, NextPage } from 'next';
 import {
   getAllCharacters,
@@ -6,7 +6,6 @@ import {
 } from '@/httpRequest/characters';
 import { parsePageCharacters } from '@/parsers/characters';
 
-import { PageContext } from '@/context/page';
 import { usePagination } from '@/hooks/usePagination';
 
 import { CommonLayout } from '@/layouts/CommonLayout/CommonLayout';
@@ -21,9 +20,6 @@ import type {
 } from '@/interfaces/characters';
 
 const Characters: NextPage<ICharacters> = ({ totalPages, pages }) => {
-
-	const { setPageMetaTags } = useContext(PageContext);
-
   const metaTags: IMetatag[] =  useMemo(() => [
     { tag: 'title', attributes: { name: 'title', content: 'Characters' } },
     { tag: 'meta', attributes: { name: 'og:title', content: 'Characters' } },
@@ -32,11 +28,6 @@ const Characters: NextPage<ICharacters> = ({ totalPages, pages }) => {
     { tag: 'meta', attributes: { name: 'og:description', content: 'List of Rick and Morty characters' } },
     { tag: 'meta', attributes: { name: 'twitter:description', content: 'List of Rick and Morty characters' } },
   ],[]);
-
-	useEffect(() => {
-    setPageMetaTags(metaTags);
-  }, [metaTags, setPageMetaTags]);
-
 
   const {
     currentPage,
@@ -59,6 +50,7 @@ const Characters: NextPage<ICharacters> = ({ totalPages, pages }) => {
 
   return (
     <CommonLayout
+			metaTags={metaTags}
       breadcrumbs={breadcrumbs}
       heading='Characters'
     >
