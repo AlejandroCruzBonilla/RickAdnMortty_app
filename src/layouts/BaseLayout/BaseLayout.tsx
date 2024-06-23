@@ -1,12 +1,10 @@
-import { useContext, type FC } from 'react';
+import { type FC } from 'react';
 import Head from 'next/head';
-import { PageContext } from '@/context/page';
 
 import type { IBaseLayout } from './interfaces';
 
-export const BaseLayout: FC<IBaseLayout> = ({ children }) => {
-  const { metaTags } = useContext(PageContext);
-  console.log({ metaTags });
+export const BaseLayout: FC<IBaseLayout> = ({ children, metaTags }) => {
+
 
   const title = metaTags.find(mTag => mTag.attributes.name === 'title');
   const mTags = metaTags.filter(mTag => mTag.attributes.name !== 'title');
@@ -20,7 +18,7 @@ export const BaseLayout: FC<IBaseLayout> = ({ children }) => {
           const Tag = tag;
           return <Tag {...attributes} key={index} />;
         })}
-        <link rel='icon' type='image/png' href='favicon.png' />
+        <link rel='icon' type="image/png" href='favicon.png' />
         <meta
           property='og:image'
           content='https://cms.alex139139.com/sites/default/files/images/rickandmorty.jpg'

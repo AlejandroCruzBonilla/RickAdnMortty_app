@@ -3,7 +3,6 @@ import type { GetStaticPropsResult, NextPage } from 'next';
 import { getAllEpisodes, getEpisodesByPage } from '@/httpRequest/episodes';
 import { parsePageEpisodes } from '@/parsers/episodes';
 
-import { PageContext } from '@/context/page';
 import { usePagination } from '@/hooks/usePagination';
 
 import { CommonLayout } from '@/layouts/CommonLayout/CommonLayout';
@@ -16,11 +15,11 @@ import type {
   IEpisodes,
   IPageEpisodes,
 } from '@/interfaces/episodes';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 
 const Episodes: NextPage<IEpisodes> = ({ totalPages, pages }) => {
-	const { setPageMetaTags } = useContext(PageContext);
+
 
   const metaTags: IMetatag[] =  useMemo(() => [
     { tag: 'title', attributes: { name: 'title', content: 'Episodes' } },
@@ -30,10 +29,6 @@ const Episodes: NextPage<IEpisodes> = ({ totalPages, pages }) => {
     { tag: 'meta', attributes: { name: 'og:description', content: 'List of Rick and Morty episodes' } },
     { tag: 'meta', attributes: { name: 'twitter:description', content: 'List of Rick and Morty episodes' } },
   ],[]);
-
-	useEffect(() => {
-    setPageMetaTags(metaTags);
-  }, [metaTags, setPageMetaTags]);
 
   const {
     currentPage,
@@ -55,6 +50,7 @@ const Episodes: NextPage<IEpisodes> = ({ totalPages, pages }) => {
   const breadcrumbs = [{ label: 'Episodes' }];
   return (
     <CommonLayout
+			metaTags={metaTags}
       breadcrumbs={breadcrumbs}
       heading='Episodes'
     >

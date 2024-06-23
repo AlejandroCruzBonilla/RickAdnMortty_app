@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import type {
   GetStaticPaths,
@@ -12,8 +12,6 @@ import classNames from 'classnames';
 
 import { getAllCharacters, getCharacterById } from '@/httpRequest/characters';
 import { parseCharacter } from '@/parsers/characters';
-
-import { PageContext } from '@/context/page';
 
 import { CommonLayout } from '@/layouts/CommonLayout/CommonLayout';
 import { EpisodeList } from '@/components/episodes/EpisodeList';
@@ -35,7 +33,6 @@ const Character: NextPage<ICharacter> = ({
   species,
   status,
 }) => {
-	const { setPageMetaTags } = useContext(PageContext);
 
   const metaTags: IMetatag[] =  useMemo(() => [
     { tag: 'title', attributes: { name: 'title', content: `Character: ${name}` } },
@@ -46,11 +43,6 @@ const Character: NextPage<ICharacter> = ({
     { tag: 'meta', attributes: { name: 'twitter:description', content: `${name} character page` } },
   ],[name]);
 
-	useEffect(() => {
-    setPageMetaTags(metaTags);
-  }, [metaTags, setPageMetaTags]);
-
-
   const breadcrumbs = [
     { label: 'Characters', url: '/characters' },
     { label: name },
@@ -58,6 +50,7 @@ const Character: NextPage<ICharacter> = ({
 
   return (
     <CommonLayout
+			metaTags={metaTags}
       breadcrumbs={breadcrumbs}
       heading={`#${id} - ${name}`}
     >

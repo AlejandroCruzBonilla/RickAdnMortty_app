@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { GetStaticPropsResult, NextPage } from 'next';
 
 import { getAllLocations, getLocationsByPage } from '@/httpRequest/locations';
@@ -18,11 +18,7 @@ import type {
   IPageLocations,
 } from '@/interfaces/locations';
 
-import { PageContext } from '@/context/page';
-
 const Locations: NextPage<ILocations> = ({ totalPages, pages }) => {
-	const { setPageMetaTags } = useContext(PageContext);
-
   const metaTags: IMetatag[] =  useMemo(() => [
     { tag: 'title', attributes: { name: 'title', content: 'Locations' } },
     { tag: 'meta', attributes: { name: 'og:title', content: 'Locations' } },
@@ -31,10 +27,6 @@ const Locations: NextPage<ILocations> = ({ totalPages, pages }) => {
     { tag: 'meta', attributes: { name: 'og:description', content: 'List of Rick and Morty locations' } },
     { tag: 'meta', attributes: { name: 'twitter:description', content: 'List of Rick and Morty locations' } },
   ],[]);
-
-	useEffect(() => {
-    setPageMetaTags(metaTags);
-  }, [metaTags, setPageMetaTags]);
 
   const {
     currentPage,
@@ -57,6 +49,7 @@ const Locations: NextPage<ILocations> = ({ totalPages, pages }) => {
 
   return (
     <CommonLayout
+			metaTags={metaTags}
       breadcrumbs={breadcrumbs}
       heading='Locations'
     >

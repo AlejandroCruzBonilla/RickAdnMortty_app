@@ -13,6 +13,7 @@ export const CommonLayout: FC<ICommonLayout> = ({
   children,
   breadcrumbs,
   heading,
+	metaTags,
 }) => {
   const mainMenu: IMenuItem[] = [
     {
@@ -56,7 +57,7 @@ export const CommonLayout: FC<ICommonLayout> = ({
   }));
 
   return (
-    <BaseLayout>
+    <BaseLayout metaTags={metaTags}>
       <div className={styles.layout}>
         <div className={styles.layout__wrapper}>
           <Header mainMenu={mainMenu} />

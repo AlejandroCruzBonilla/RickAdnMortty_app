@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import type {
   GetStaticPaths,
   GetStaticPathsResult,
@@ -10,8 +10,6 @@ import type {
 import { getAllEpisodes, getEpisodeById } from '@/httpRequest/episodes';
 import { parseEpisode } from '@/parsers/episodes';
 
-import { PageContext } from '@/context/page';
-
 import { CommonLayout } from '@/layouts/CommonLayout/CommonLayout';
 import { CharacterList } from '@/components/characters/CharacterList';
 
@@ -21,8 +19,6 @@ import type { IEpisode } from '@/interfaces/episodes';
 
 
 const Episode: NextPage<IEpisode> = ({ id, airDate, characters, name }) => {
-	const { setPageMetaTags } = useContext(PageContext);
-
   const metaTags: IMetatag[] =  useMemo(() => [
     { tag: 'title', attributes: { name: 'title', content: `Episode: ${name}` } },
     { tag: 'meta', attributes: { name: 'og:title', content: `Episode: ${name}` } },
@@ -32,10 +28,6 @@ const Episode: NextPage<IEpisode> = ({ id, airDate, characters, name }) => {
     { tag: 'meta', attributes: { name: 'twitter:description', content: `${name} episode page` } },
   ],[name]);
 
-	useEffect(() => {
-    setPageMetaTags(metaTags);
-  }, [metaTags, setPageMetaTags]);
-
   const breadcrumbs = [
     { label: 'Episodes', url: '/episodes' },
     { label: name },
@@ -43,6 +35,7 @@ const Episode: NextPage<IEpisode> = ({ id, airDate, characters, name }) => {
 
   return (
     <CommonLayout
+			metaTags={metaTags}
       breadcrumbs={breadcrumbs}
       heading={`#${id} - ${name}`}
     >

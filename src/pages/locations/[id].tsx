@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import type {
   GetStaticPaths,
   GetStaticPathsResult,
@@ -9,8 +9,6 @@ import type {
 
 import { getAllLocations, getLocationById } from '@/httpRequest/locations';
 import { parseLocation } from '@/parsers/locations';
-
-import { PageContext } from '@/context/page';
 
 import { CommonLayout } from '@/layouts/CommonLayout/CommonLayout';
 import { CharacterList } from '@/components/characters/CharacterList';
@@ -25,8 +23,6 @@ const Episode: NextPage<ILocation> = ({
   type,
   residents,
 }) => {
-	const { setPageMetaTags } = useContext(PageContext);
-
   const metaTags: IMetatag[] =  useMemo(() => [
     { tag: 'title', attributes: { name: 'title', content: `Location: ${name}` } },
     { tag: 'title', attributes: { name: 'og:title', content: `Location: ${name}` } },
@@ -36,10 +32,6 @@ const Episode: NextPage<ILocation> = ({
     { tag: 'meta', attributes: { name: 'twitter:description', content: `${name} location page` } },
   ],[name]);
 
-	useEffect(() => {
-    setPageMetaTags(metaTags);
-  }, [metaTags, setPageMetaTags]);
-
   const breadcrumbs = [
     { label: 'Locations', url: '/locations' },
     { label: name },
@@ -47,6 +39,7 @@ const Episode: NextPage<ILocation> = ({
 
   return (
     <CommonLayout
+			metaTags={metaTags}
       breadcrumbs={breadcrumbs}
       heading={`#${id} - ${name}`}
     >

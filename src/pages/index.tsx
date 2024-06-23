@@ -1,10 +1,9 @@
-import { useContext, useEffect, useMemo } from 'react';
-import { PageContext } from '@/context/page';
+import { useMemo } from 'react';
 import { CommonLayout } from '@/layouts/CommonLayout/CommonLayout';
 import type { IMetatag } from '@/interfaces/common';
 
 export default function Home() {
-  const { setPageMetaTags } = useContext(PageContext);
+
 
 	const metaTags: IMetatag[] =  useMemo(() => [
     { tag: 'title', attributes: { name: 'title', content: 'Home - Alex139139' } },
@@ -16,11 +15,8 @@ export default function Home() {
 
   ],[]);
 
-  useEffect(() => {
-    setPageMetaTags(metaTags);
-  }, [metaTags, setPageMetaTags]);
   return (
-    <CommonLayout heading='Alex139139'>
+    <CommonLayout metaTags={metaTags} heading='Alex139139'>
       <section>
         <p>
           Esta página fue construida usando la documentación y API de{' '}
