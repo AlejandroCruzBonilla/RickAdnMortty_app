@@ -29,7 +29,7 @@ export const Footer: FC<IFooter> = () => {
               <GitHub width='35' height='35' />
             </a>
             <a href='https://alex139139.com' target='_blank'>
-              <Image src='/alex139139.png' width='35' height='35' alt='Site of alex139139'/>
+              <Image src='https://cms.alex139139.com/sites/default/files/images/alex139139.png' width='35' height='35' alt='Site of alex139139'/>
             </a>
           </div>
 
