@@ -18,7 +18,7 @@ export const BaseLayout: FC<IBaseLayout> = ({ children, metaTags }) => {
           const Tag = tag;
           return <Tag {...attributes} key={index} />;
         })}
-        <link rel='icon' type="image/png" href='favicon.png' />
+        <link rel='icon' type="image/png" href='/favicon.png' />
         <meta
           property='og:image'
           content='https://cms.alex139139.com/sites/default/files/images/rickandmorty.jpg'
