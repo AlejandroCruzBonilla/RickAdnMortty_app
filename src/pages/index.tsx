@@ -23,8 +23,14 @@ export default function Home() {
     <CommonLayout heading='Alex139139'>
       <section>
         <p>
-          Esta página fue construida usando la documentación y API de <a href='https://rickandmortyapi.com/documentation' className='text-primary'>Rick y Morty</a>  con diversas tecnologías y librerías de
-          JavaScript como:
+          Esta página fue construida usando la documentación y API de{' '}
+          <a
+            href='https://rickandmortyapi.com/documentation'
+            className='text-primary'
+          >
+            Rick y Morty
+          </a>{' '}
+          con diversas tecnologías y librerías de JavaScript como:
         </p>
 
         <ul className='my-8 text-primary'>
@@ -38,14 +44,17 @@ export default function Home() {
               Next.Js
             </a>
           </li>
-					<li>
+          <li>
             <a href='https://primereact.org' target='_blank'>
               PrimeReact
             </a>
           </li>
-					<li>
-            <a href='https://github.com/afuh/rick-and-morty-api-node' target='_blank'>
-							Rick and Morty API Client 
+          <li>
+            <a
+              href='https://github.com/afuh/rick-and-morty-api-node'
+              target='_blank'
+            >
+              Rick and Morty API Client
             </a>
           </li>
           <li>
@@ -67,23 +76,55 @@ export default function Home() {
 
         <p>
           Esta Aplicación fue desplegada en un&nbsp;
-          <a href='https://aws.amazon.com/es/s3/' target='_blank' className='text-primary'>
+          <a
+            href='https://aws.amazon.com/es/s3/'
+            target='_blank'
+            className='text-primary'
+          >
             Bucket S3 de AWS
-          </a>&nbsp;
-          como página estática y distribuida en&nbsp;
-          <a href='https://aws.amazon.com/es/cloudfront/' target='_blank' className='text-primary'>
+          </a>
+          &nbsp; como página estática y distribuida en&nbsp;
+          <a
+            href='https://aws.amazon.com/es/cloudfront/'
+            target='_blank'
+            className='text-primary'
+          >
             CloudFront de AWS
           </a>
-          &nbsp;como CDN.
+          &nbsp;como CDN y en{' '}
+          <a
+            href='https://pages.github.com'
+            target='_blank'
+            className='text-primary'
+          >
+            Github Pages
+          </a>
+          .
+          <br />
+          <a
+            href='https://d24pch1rifyep0.cloudfront.net'
+            target='_blank'
+            className='text-primary'
+          >
+            https://d24pch1rifyep0.cloudfront.net
+          </a>
+          <br />
+          <a
+            href='https://alejandrocruzbonilla.github.io/RickAdnMortty_app/'
+            target='_blank'
+            className='text-primary'
+          >
+            https://alejandrocruzbonilla.github.io/RickAdnMortty_app/
+          </a>
         </p>
 
         <p>
           El código de esta aplicación se encuentra en un repositorio público de
           mi&nbsp;
           <a
-            href='https://github.com/AlejandroCruzBonilla/spa-vue-pokemon-api'
+            href='https://github.com/AlejandroCruzBonilla/RickAdnMortty_app'
             target='_blank'
-						className='text-primary'
+            className='text-primary'
           >
             GitHub
           </a>
