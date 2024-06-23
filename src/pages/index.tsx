@@ -70,7 +70,7 @@ export default function Home() {
           </li>
         </ul>
 
-        <p>
+        <p className='break-all'>
           Esta Aplicación fue desplegada en un&nbsp;
           <a
             href='https://aws.amazon.com/es/s3/'
