@@ -1,0 +1,36 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    @screen lg {
+      opacity: 1;
+      transition: opacity;
+      transition-duration: 0.25s;
+
+      &:hover {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__text {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+    @screen lg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: -10;
+    }
+  }
+
+  &__title {
+    text-align: center;
+		line-height: 1.2;
+		margin: 0.5rem 1rem 0 1rem;
+  }
+}

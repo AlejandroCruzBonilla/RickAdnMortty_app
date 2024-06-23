@@ -1,0 +1,52 @@
+@use 'colors' as c;
+@use '@/styles/settings/functions' as f;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    font-size: 16px;
+    color: var(--color-font);
+    background-color: var(--color-background);
+  }
+  .light {
+    --base-color-font: var(--base-color-font-dark);
+    --base-color-background: var(--base-color-background-light);
+    --base-color-background-accent: var(--base-color-background-accent-light);
+  }
+
+  .dark {
+    --base-color-font: var(--base-color-font-light);
+    --base-color-background: var(--base-color-background-dark);
+    --base-color-background-accent: var(--base-color-background-accent-dark);
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-roboto_mono), Arial, Helvetica, sans-serif;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  a {
+    display: inline-block;
+  }
+
+  body {
+    font-size: 1.125rem;
+    line-height: 2em;
+    width: 100vw;
+    overflow-x: hidden;
+		.next__app {
+      font-family: var(--font-roboto), Arial, Helvetica, sans-serif;
+    }
+  }
+}

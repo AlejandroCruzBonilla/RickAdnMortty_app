@@ -1,0 +1,29 @@
+@mixin layout {
+  margin-inline: auto;
+  @apply container;
+  @include layout-padding;
+}
+
+@mixin layout-padding {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  @screen sm {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @screen md {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @screen lg {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@mixin layout-min-height {
+  min-height: calc(100svh - var(--header-height) - var(--footer-height));
+  @screen md {
+    min-height: calc(100svh - var(--header-height) - var(--footer-md-height));
+  }
+}

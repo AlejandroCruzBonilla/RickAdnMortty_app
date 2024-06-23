@@ -1,0 +1,15 @@
+@use '@/styles/settings/mixins' as m;
+
+@layer utilities {
+  .layout-padding {
+    @include m.layout-padding;
+  }
+
+  .layout {
+    @include m.layout;
+  }
+
+  .layout-min-height {
+    @include m.layout-min-height;
+  }
+}

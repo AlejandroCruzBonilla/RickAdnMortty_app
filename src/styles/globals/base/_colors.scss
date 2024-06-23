@@ -1,0 +1,69 @@
+@use '@/styles/settings/functions' as f;
+
+/* Tailwind Colors */
+
+//Primary
+$color-primary: theme('colors.primary');
+//Font
+$color-font: theme('colors.font.DEFAULT');
+$color-font-light: theme('colors.font.light');
+$color-font-dark: theme('colors.font.dark');
+//Background
+$color-background: theme('colors.background.DEFAULT');
+$color-background-light: theme('colors.background.light');
+$color-background-dark: theme('colors.background.dark');
+//Background Accent
+$color-background-accent: theme('colors.background_accent.DEFAULT');
+$color-background-accent-light: theme('colors.background_accent.light');
+$color-background-accent-dark: theme('colors.background_accent.dark');
+
+/* ------ */
+
+@layer base {
+  :root {
+    /* Base Tailwind Colors */
+    //Font
+    --base-color-font-light: #{f.hexToRgbColors(#e7e5e4)};
+    --base-color-font-dark: #{f.hexToRgbColors(#292524)};
+
+    //Background
+    --base-color-background-light: #{f.hexToRgbColors(#f4f4f5)};
+    --base-color-background-dark: #{f.hexToRgbColors(#18181b)};
+
+    //Background Accent
+    --base-color-background-accent-light: #{f.hexToRgbColors(#fafafa)};
+    --base-color-background-accent-dark: #{f.hexToRgbColors(#27272a)};
+
+    //Primary
+    --base-color-primary: #{f.hexToRgbColors(#4cbe00)};
+		/* ------ */
+
+
+    /* Theme Default  Base Colors */
+    --base-color-font: var(--base-color-font-light);
+    --base-color-background: var(--base-color-background-dark);
+    --base-color-background-accent: var(--base-color-background-accent-dark);
+		/* ------ */
+
+
+    /* Colors */
+    //Primary
+    --color-primary: #{$color-primary};
+
+    //Font
+    --color-font: #{$color-font};
+    --color-font-light: #{$color-font-light};
+    --color-font-dark: #{$color-font-dark};
+
+    //Background
+    --color-background: #{$color-background};
+    --color-background-light: #{$color-background-light};
+    --color-background-dark: #{$color-background-dark};
+
+    //Background Accent
+    --color-background-accent: #{$color-background-accent};
+    --color-background-accent-light: #{$color-background-accent-light};
+    --color-background-accent-dark: #{$color-background-accent-dark};
+		/* ------ */
+  }
+}

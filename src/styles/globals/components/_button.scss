@@ -1,0 +1,56 @@
+@layer components {
+  .button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition-property: color, background-color;
+    transition-duration: 150ms;
+		line-height: 1;
+		&:disabled {
+			cursor: unset;
+			opacity: 0.8;
+		}
+
+  }
+  .button-primary {
+    @apply button;
+    background-color: var(--color-primary);
+    color: var(--color-font-dark);
+    transition: box-shadow 0.2s ease-in-out;
+    &:not(:disabled):hover {
+      @apply shadow shadow-primary;
+    }
+  }
+  .button-primary-text {
+    @apply button;
+    color: var(--color-primary);
+		svg {
+			fill: var(--color-font);
+		}
+    &:not(:disabled):hover {
+      color: var(--color-font);
+      background-color: var(--color-primary);
+      svg {
+        fill: var(--color-font);
+      }
+    }
+  }
+  .button-primary-outlined {
+    @apply button;
+    border-width: 2px;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+		&:not(:disabled):hover {
+			color: var(--color-font-dark);
+			background-color: var(--color-primary);
+		}
+  }
+}

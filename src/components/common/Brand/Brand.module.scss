@@ -1,0 +1,36 @@
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.5;
+    @screen xs {
+      line-height: unset;
+    }
+  }
+
+  &__logo {
+    width: 70px;
+    height: auto;
+  }
+  &__name {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    line-height: 1.6;
+    @screen xs {
+      line-height: unset;
+    }
+  }
+  &__slogan {
+    text-wrap: balance;
+    line-height: 1;
+    @screen xs {
+      line-height: unset;
+    }
+  }
+}

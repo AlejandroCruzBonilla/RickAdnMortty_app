@@ -1,0 +1,10 @@
+@use '@/styles/settings/mixins' as m;
+
+@layer utilities {
+  .image-fit-cover {
+		@include m.image-fit-cover;
+  }
+	.aspect-vertical-video{
+		aspect-ratio: 9/16;
+	}
+}

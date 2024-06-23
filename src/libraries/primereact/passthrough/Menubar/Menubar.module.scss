@@ -1,0 +1,86 @@
+@use '@/styles/settings/mixins' as m;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  @screen lg {
+    min-height: 75px;
+  }
+  &__menu {
+    width: 100%;
+    position: absolute;
+    flex-wrap: wrap;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-background-accent);
+    @apply shadow-md ml-auto;
+
+    @screen lg {
+      width: auto;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      background-color: inherit;
+      top: auto;
+      left: auto;
+
+      @apply shadow-none;
+    }
+  }
+  &__menu_item {
+    width: 100%;
+    position: static;
+    @screen lg {
+      width: auto;
+      position: relative;
+    }
+  }
+
+  &__submenu {
+    width: 100%;
+    position: static;
+    border-width: 0px;
+    z-index: 10;
+    background-color: var(--color-background-accent);
+    @apply shadow-none;
+    @screen lg {
+      position: absolute;
+      @apply shadow-md w-48;
+    }
+  }
+
+  &__action {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    justify-content: space-between;
+    cursor: pointer;
+    line-height: 1;
+    gap: 0.2rem;
+    @apply py-3 px-5;
+    &_active {
+      color: var(--color-primary);
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-full);
+    color: var(--color-primary);
+    @apply w-10 h-10 ml-auto;
+    cursor: pointer;
+    @apply transition-colors duration-200 ease-in-out;
+    @screen lg {
+      display: none;
+    }
+  }
+}

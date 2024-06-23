@@ -1,0 +1,16 @@
+.heading {
+  color: inherit;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__text {
+    padding-top: var(--spacing);
+    padding-bottom: calc(var(--spacing) * 0.78);
+  }
+}

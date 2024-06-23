@@ -1,0 +1,13 @@
+@use '@/styles/settings/mixins' as m;
+
+.layout {
+  color: inherit;
+  &__wrapper {
+    @include m.layout;
+  }
+
+  &__main {
+    @include m.layout-min-height;
+    padding-bottom: var(--spacing);
+  }
+}

@@ -1,0 +1,26 @@
+/*	Utilities	*/
+$border-radius-full: 50%;
+$border-radius: 0.5rem;
+$gap-spacing: 2rem;
+$spacing: 2.5rem;
+$z-index-full: 9999;
+
+/*	Components	*/
+$header-height: 100px;
+$footer-height: 200px;
+$footer-md-height: 100px;
+
+@layer base {
+  :root {
+    // Utilities
+    --border-radius: #{$border-radius};
+    --border-radius-full: #{$border-radius-full};
+    --gap-spacing: #{$gap-spacing};
+    --spacing: #{$spacing};
+    --z-index-full: #{$z-index-full};
+    //Components
+    --header-height: #{$header-height};
+    --footer-height: #{$footer-height};
+    --footer-md-height: #{$footer-md-height};
+  }
+}

@@ -1,0 +1,13 @@
+@function hexToRgbColors($hex) {
+  $r: red($hex);
+  $g: green($hex);
+  $b: blue($hex);
+  @return $r $g $b;
+}
+
+@function hexToRgb($hex) {
+  $r: red($hex);
+  $g: green($hex);
+  $b: blue($hex);
+  @return unquote('rgb(#{$r} #{$g} #{$b})');
+}
