@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import styles from './Menu.module.scss';
-import type { MenuPassThroughOptions } from 'primereact/menu';
 
 export const menu = {
   root: {
