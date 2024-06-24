@@ -43,8 +43,7 @@ export const CommonLayout: FC<ICommonLayout> = ({
   ];
 
   const breadcrumbHome = {
-    label: 'Home',
-    url: '/',
+    template: () => <Breadcrumb label='Home' url='/' />
   };
 
   const parsedBreadcrumb = breadcrumbs?.map((breadcrumb, index) => ({
