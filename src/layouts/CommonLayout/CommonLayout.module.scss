@@ -1,7 +1,7 @@
 @use '@/styles/settings/mixins' as m;
 
 .layout {
-  color: inherit;
+  position: relative;
   &__wrapper {
     @include m.layout;
   }
@@ -9,5 +9,23 @@
   &__main {
     @include m.layout-min-height;
     padding-bottom: var(--spacing);
+  }
+  &::before {
+    content: '';
+    background: linear-gradient(
+        rgba(var(--base-color-background) / 0.98),
+        rgba(var(--base-color-background) / 0.98)
+      ),
+      url('https://cms.alex139139.com/sites/default/files/images/rickandmorty.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
   }
 }
